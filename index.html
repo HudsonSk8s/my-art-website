@@ -669,6 +669,19 @@ document.body.appendChild(hiddenFlake);
     bottom: 8px;
     right: 10px;
     font-size:
+<!-- Visitor Counter -->
+<p id="visitor-counter" style="text-align:center; color:#d32f2f; font-weight:bold;">
+  👋 Loading visitors...
+</p>
+
+<script>
+fetch('https://api.countapi.xyz/hit/hudsons-art-site/visits')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('visitor-counter').textContent =
+      `👋 ${data.value} people have visited this site!`;
+  });
+</script>
 </body>
 </html>
 
