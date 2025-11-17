@@ -1,3 +1,5 @@
+
+You said:
 <!doctype html>
 <html lang="en">
 <head>
@@ -113,9 +115,6 @@
   </style>
 </head>
 <body>
-  <script 
-  src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID_HERE&components=buttons&currency=USD">
-</script>
 <!-- 🎅 Santa Hat Easter Egg -->
 <script>
   document.addEventListener('keydown', (e) => {
@@ -276,7 +275,7 @@
         a.href = '#';
         const img = document.createElement('img');
         img.src = src;
-        img.alt = `Artwork ${i+1}`;
+        img.alt = Artwork ${i+1};
         img.loading = 'lazy';
         a.appendChild(img);
         a.addEventListener('click', e=>{
@@ -295,28 +294,24 @@
         const meta = document.createElement('div');
         meta.className = 'meta';
         const title = document.createElement('div');
-        title.textContent = `Artwork ${i+1}`;
+        title.textContent = Artwork ${i+1};
         title.style.fontSize='0.95rem';
         title.style.color='var(--muted)';
         const price = document.createElement('div');
-        price.innerHTML = `<span class="price">$2</span>`;
+        price.innerHTML = <span class="price">$2</span>;
         meta.appendChild(title);
         meta.appendChild(price);
 
-// Real PayPal Buy Button
-const paypalContainer = document.createElement('div');
-paypalContainer.id = 'paypal-container-1';
-item.appendChild(paypalContainer);
-
-const paypalScript = document.createElement('script');
-paypalScript.src = "https://www.paypal.com/sdk/js?client-id=BAAmJD_Lw6N_X_xz1PTrWEuCUTXxyG5oUF2oWs2Iuuhe4QcbY1rsNt2UXM8coGklnqjSe9jxPd1ikcTB7I&components=hosted-buttons&enable-funding=venmo&currency=USD";
-paypalScript.onload = () => {
-  paypal.HostedButtons({
-    hostedButtonId: "9NMTTU55F7W4E"
-  }).render('#paypal-container-1');
-};
-document.body.appendChild(paypalScript);
-
+        // Fake buy button: shows a friendly alert (no email/payment)
+        const buy = document.createElement('a');
+        buy.className = 'fake-buy';
+        buy.href = '#';
+        buy.textContent = 'Buy Now (Coming Soon!)';
+        buy.style.marginTop = '8px';
+        buy.addEventListener('click',(ev)=>{
+          ev.preventDefault();
+          alert("Thanks for your interest! Buying isn't set up yet — come back soon!");
+        });
 
         card.appendChild(a);
         card.appendChild(hat);
@@ -450,16 +445,16 @@ giftBox.addEventListener('click', () => {
     conf.style.left = (Math.random()*100) + 'vw';
     conf.style.top = '100vh';
     conf.style.fontSize = '24px';
-    conf.style.animation = `rise${i} 2s ease-out forwards`;
+    conf.style.animation = rise${i} 2s ease-out forwards;
     document.body.appendChild(conf);
 
     const style = document.createElement('style');
-    style.textContent = `
+    style.textContent = 
       @keyframes rise${i} {
         from { transform: translateY(0); opacity:1; }
         to { transform: translateY(-110vh); opacity:0; }
       }
-    `;
+    ;
     document.head.appendChild(style);
 
     setTimeout(() => conf.remove(), 2000);
@@ -678,4 +673,3 @@ document.body.appendChild(hiddenFlake);
     font-size:
 </body>
 </html>
-
