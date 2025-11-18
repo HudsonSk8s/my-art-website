@@ -110,28 +110,32 @@
       .card img{height:140px}
       .logo{font-size:1.05rem}
     }
+
+    /* small hint styles at bottom-right */
+    #hidden-hint { position: fixed; bottom: 8px; right: 10px; font-size:20px; opacity:0.9; z-index:9999; }
+    #hint-msg { position: fixed; bottom: 40px; right: 10px; background: rgba(255,255,255,0.95); padding:8px 12px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.12); font-weight:700; color:var(--red); display:none; z-index:9999; }
   </style>
 </head>
 <body>
-<!-- 🎅 Santa Hat Easter Egg -->
-<script>
-  document.addEventListener('keydown', (e) => {
-    if (e.key.toLowerCase() === 's') { // press "S" for Santa
-      const hat = document.createElement('div');
-      hat.textContent = '🎅';
-      hat.style.position = 'fixed';
-      hat.style.bottom = '20px';
-      hat.style.right = '20px';
-      hat.style.fontSize = '80px';
-      hat.style.zIndex = '9999';
-      hat.style.transition = 'transform 1s ease';
-      document.body.appendChild(hat);
-      setTimeout(() => hat.style.transform = 'translateY(-100vh)'), 1000;
-      setTimeout(() => hat.remove(), 2000);
-    }
-  });
-</script>
-  
+  <!-- 🎅 Santa Hat Easter Egg -->
+  <script>
+    document.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 's') { // press "S" for Santa
+        const hat = document.createElement('div');
+        hat.textContent = '🎅';
+        hat.style.position = 'fixed';
+        hat.style.bottom = '20px';
+        hat.style.right = '20px';
+        hat.style.fontSize = '80px';
+        hat.style.zIndex = '9999';
+        hat.style.transition = 'transform 1s ease';
+        document.body.appendChild(hat);
+        setTimeout(() => hat.style.transform = 'translateY(-100vh)'), 1000;
+        setTimeout(() => hat.remove(), 2000);
+      }
+    });
+  </script>
+
   <div class="decor" aria-hidden="true">
     <div class="dec-emoji dec-1">🎅</div>
     <div class="dec-emoji dec-2">🧝‍♀️</div>
@@ -198,19 +202,19 @@
     </section>
 
    <!-- About -->
-<section id="about" class="container">
-  <h2>About</h2>
+  <section id="about" class="container">
+    <h2>About</h2>
 
-  <!-- Profile photo (uses the image you uploaded to assets/gallery/IMG_6869.jpeg) -->
-  <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-    <img src="assets/gallery/IMG_6869.jpeg"
-         alt="Photo of Hudson"
-         style="width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 8px 18px rgba(0,0,0,0.12);display:block;">
-    <div style="flex:1;min-width:200px;">
-      <p><strong>Hi! I’m Hudson.</strong> I’m a young artist who loves drawing and sharing my creations. My art is inspired by the holidays and imagination — I made the pieces on this site especially for Christmas. Thanks for stopping by!</p>
+    <!-- Profile photo (uses the image you uploaded to assets/gallery/IMG_6869.jpeg) -->
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <img src="assets/gallery/IMG_6869.jpeg"
+           alt="Photo of Hudson"
+           style="width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 8px 18px rgba(0,0,0,0.12);display:block;">
+      <div style="flex:1;min-width:200px;">
+        <p><strong>Hi! I’m Hudson.</strong> I’m a young artist who loves drawing and sharing my creations. My art is inspired by the holidays and imagination — I made the pieces on this site especially for Christmas. Thanks for stopping by!</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
     <!-- Contact / fake shop note -->
     <section id="contact" class="container">
@@ -218,8 +222,10 @@
       <p>If you'd like to ask about a piece, use the "Buy" (coming soon) buttons in the gallery — they currently show a message because direct payments aren't set up yet. You can also send a message to the site owner via your email client when you click the fake buttons.</p>
     </section>
   </main>
-<!-- 🎁 Easter Egg Gift -->
-<div id="gift-box" style="position:fixed;right:20px;bottom:80px;font-size:40px;cursor:pointer;z-index:100;">🎁</div>
+
+  <!-- 🎁 Easter Egg Gift -->
+  <div id="gift-box" style="position:fixed;right:20px;bottom:80px;font-size:40px;cursor:pointer;z-index:100;">🎁</div>
+
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <small>© <span id="year"></span> Hudson's Art — Holiday Collection</small>
@@ -273,7 +279,7 @@
         a.href = '#';
         const img = document.createElement('img');
         img.src = src;
-        img.alt = Artwork ${i+1};
+        img.alt = `Artwork ${i+1}`;
         img.loading = 'lazy';
         a.appendChild(img);
         a.addEventListener('click', e=>{
@@ -292,11 +298,11 @@
         const meta = document.createElement('div');
         meta.className = 'meta';
         const title = document.createElement('div');
-        title.textContent = Artwork ${i+1};
+        title.textContent = `Artwork ${i+1}`;
         title.style.fontSize='0.95rem';
         title.style.color='var(--muted)';
         const price = document.createElement('div');
-        price.innerHTML = <span class="price">$2</span>;
+        price.innerHTML = `<span class="price">$2</span>`;
         meta.appendChild(title);
         meta.appendChild(price);
 
@@ -406,268 +412,261 @@
 
     // Helpful note (console)
     console.log("Hudson's Art site loaded. To show your own images upload them to assets/gallery/ on GitHub, or add image URLs using the gallery input.");
-  // 🎅 Secret Santa Mode + Gift Surprise Easter Eggs
 
-let santaClicks = 0;
-
-// When user clicks a Santa hat (🎅) 3 times
-document.addEventListener('click', (e) => {
-  if (e.target.textContent === '🎅') {
-    santaClicks++;
-    if (santaClicks === 3) {
-      santaClicks = 0;
-      alert("🎅 Ho Ho Ho! You found Secret Santa Mode!");
-      // add extra snow!
-      for (let i = 0; i < 15; i++) {
-        const s = document.createElement('i');
-        s.textContent = '❄️';
-        const left = Math.random() * 100;
-        const dur = 8 + Math.random() * 18;
-        s.style.left = left + 'vw';
-        s.style.animationDuration = dur + 's';
-        s.style.opacity = 0.8;
-        document.querySelector('.snow').appendChild(s);
+    // 🎅 Secret Santa Mode + Gift Surprise Easter Eggs
+    let santaClicks = 0;
+    document.addEventListener('click', (e) => {
+      if (e.target.textContent === '🎅') {
+        santaClicks++;
+        if (santaClicks === 3) {
+          santaClicks = 0;
+          alert("🎅 Ho Ho Ho! You found Secret Santa Mode!");
+          // add extra snow!
+          for (let i = 0; i < 15; i++) {
+            const s = document.createElement('i');
+            s.textContent = '❄️';
+            const left = Math.random() * 100;
+            const dur = 8 + Math.random() * 18;
+            s.style.left = left + 'vw';
+            s.style.animationDuration = dur + 's';
+            s.style.opacity = 0.8;
+            document.querySelector('.snow').appendChild(s);
+          }
+        }
       }
-    }
-  }
-});
+    });
 
-// 🎁 Gift box click = confetti and message
-const giftBox = document.getElementById('gift-box');
-giftBox.addEventListener('click', () => {
-  // confetti effect
-  for (let i = 0; i < 40; i++) {
-    const conf = document.createElement('div');
-    conf.textContent = ['🎉','🎄','✨','🎁'][Math.floor(Math.random()*4)];
-    conf.style.position = 'fixed';
-    conf.style.left = (Math.random()*100) + 'vw';
-    conf.style.top = '100vh';
-    conf.style.fontSize = '24px';
-    conf.style.animation = rise${i} 2s ease-out forwards;
-    document.body.appendChild(conf);
+    // 🎁 Gift box click = confetti and message
+    const giftBox = document.getElementById('gift-box');
+    giftBox.addEventListener('click', () => {
+      // confetti effect
+      for (let i = 0; i < 40; i++) {
+        const conf = document.createElement('div');
+        conf.textContent = ['🎉','🎄','✨','🎁'][Math.floor(Math.random()*4)];
+        conf.style.position = 'fixed';
+        conf.style.left = (Math.random()*100) + 'vw';
+        conf.style.top = '100vh';
+        conf.style.fontSize = '24px';
+        conf.style.animation = `rise${i} 2s ease-out forwards`;
+        document.body.appendChild(conf);
 
-    const style = document.createElement('style');
-    style.textContent = 
-      @keyframes rise${i} {
-        from { transform: translateY(0); opacity:1; }
-        to { transform: translateY(-110vh); opacity:0; }
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes rise${i} {
+            from { transform: translateY(0); opacity:1; }
+            to { transform: translateY(-110vh); opacity:0; }
+          }
+        `;
+        document.head.appendChild(style);
+
+        setTimeout(() => conf.remove(), 2000);
       }
-    ;
-    document.head.appendChild(style);
 
-    setTimeout(() => conf.remove(), 2000);
-  }
+      alert("🎁 Merry Christmas from Hudson’s Art! Thanks for finding the surprise!");
+    });
+  </script>
 
-  alert("🎁 Merry Christmas from Hudson’s Art! Thanks for finding the surprise!");
-});
-</script>
-<script>
-// 🎅 HUDSON'S ULTIMATE CHRISTMAS EASTER EGGS 🎅
+  <script>
+    // 🎅 HUDSON'S ULTIMATE CHRISTMAS EASTER EGGS 🎅
 
-// Utility: random helper
-function random(min, max) { return Math.random() * (max - min) + min; }
+    // Utility: random helper
+    function random(min, max) { return Math.random() * (max - min) + min; }
 
-// 🎅 Santa Hat Float (S)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 's') {
-    const santa = document.createElement('div');
-    santa.textContent = '🎅';
-    santa.style.position = 'fixed';
-    santa.style.left = random(10, 90) + 'vw';
-    santa.style.bottom = '-80px';
-    santa.style.fontSize = '60px';
-    santa.style.transition = 'bottom 2s ease';
-    santa.style.zIndex = '9999';
-    document.body.appendChild(santa);
-    setTimeout(() => santa.style.bottom = '100vh', 100);
-    setTimeout(() => santa.remove(), 2100);
-  }
-});
-
-// 🎁 Flying Present (G)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 'g') {
-    const gift = document.createElement('div');
-    gift.textContent = '🎁';
-    gift.style.position = 'fixed';
-    gift.style.left = '-100px';
-    gift.style.top = random(10, 80) + 'vh';
-    gift.style.fontSize = '60px';
-    gift.style.transition = 'left 3s linear';
-    gift.style.zIndex = '9999';
-    document.body.appendChild(gift);
-    setTimeout(() => gift.style.left = '110vw', 50);
-    setTimeout(() => gift.remove(), 3200);
-  }
-});
-
-// 🧝 Elf Pop-In (E)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 'e') {
-    const elf = document.createElement('div');
-    elf.textContent = '🧝‍♂️';
-    elf.style.position = 'fixed';
-    elf.style.left = '-80px';
-    elf.style.bottom = '30px';
-    elf.style.fontSize = '70px';
-    elf.style.transition = 'left 2s ease';
-    elf.style.zIndex = '9999';
-    document.body.appendChild(elf);
-    setTimeout(() => elf.style.left = '50px', 100);
-    setTimeout(() => elf.style.left = '-80px', 1800);
-    setTimeout(() => elf.remove(), 2500);
-  }
-});
-
-// ❄️ Snow Burst (N)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 'n') {
-    for (let i = 0; i < 20; i++) {
-      const flake = document.createElement('div');
-      flake.textContent = '❄️';
-      flake.style.position = 'fixed';
-      flake.style.left = random(0, 100) + 'vw';
-      flake.style.top = random(0, 100) + 'vh';
-      flake.style.fontSize = random(10, 30) + 'px';
-      flake.style.opacity = 0.8;
-      flake.style.transition = 'transform 2s ease, opacity 2s ease';
-      flake.style.zIndex = '9999';
-      document.body.appendChild(flake);
-      setTimeout(() => {
-        flake.style.transform = 'translateY(100vh)';
-        flake.style.opacity = 0;
-      }, 100);
-      setTimeout(() => flake.remove(), 2100);
-    }
-  }
-});
-
-// 🎄 Secret Message (H)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 'h') {
-    const msg = document.createElement('div');
-    msg.textContent = '🎄 Merry Christmas from Hudson! 🎄';
-    msg.style.position = 'fixed';
-    msg.style.top = '40%';
-    msg.style.left = '50%';
-    msg.style.transform = 'translate(-50%, -50%)';
-    msg.style.background = 'rgba(255,255,255,0.95)';
-    msg.style.padding = '20px 40px';
-    msg.style.borderRadius = '20px';
-    msg.style.fontSize = '1.5rem';
-    msg.style.fontWeight = 'bold';
-    msg.style.color = '#d32f2f';
-    msg.style.textShadow = '0 0 10px #fff';
-    msg.style.boxShadow = '0 0 20px rgba(0,0,0,0.2)';
-    msg.style.zIndex = '9999';
-    document.body.appendChild(msg);
-    setTimeout(() => msg.remove(), 3000);
-  }
-});
-
-// 💡 Christmas Lights Flash (L)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 'l') {
-    const flash = document.createElement('div');
-    flash.style.position = 'fixed';
-    flash.style.top = '0';
-    flash.style.left = '0';
-    flash.style.width = '100vw';
-    flash.style.height = '100vh';
-    flash.style.zIndex = '9998';
-    document.body.appendChild(flash);
-    let flashes = 0;
-    const colors = ['red', 'green', 'gold', 'white'];
-    const interval = setInterval(() => {
-      flash.style.background = colors[Math.floor(Math.random() * colors.length)];
-      flash.style.opacity = 0.3;
-      setTimeout(() => flash.style.opacity = 0, 200);
-      flashes++;
-      if (flashes > 10) {
-        clearInterval(interval);
-        flash.remove();
+    // 🎅 Santa Hat Float (S)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 's') {
+        const santa = document.createElement('div');
+        santa.textContent = '🎅';
+        santa.style.position = 'fixed';
+        santa.style.left = random(10, 90) + 'vw';
+        santa.style.bottom = '-80px';
+        santa.style.fontSize = '60px';
+        santa.style.transition = 'bottom 2s ease';
+        santa.style.zIndex = '9999';
+        document.body.appendChild(santa);
+        setTimeout(() => santa.style.bottom = '100vh', 100);
+        setTimeout(() => santa.remove(), 2100);
       }
-    }, 300);
-  }
-});
+    });
 
-// 🍭 Candy Cane Rain (C)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 'c') {
-    for (let i = 0; i < 20; i++) {
-      const cane = document.createElement('div');
-      cane.textContent = '🍭';
-      cane.style.position = 'fixed';
-      cane.style.left = random(0, 100) + 'vw';
-      cane.style.top = '-50px';
-      cane.style.fontSize = random(20, 40) + 'px';
-      cane.style.transition = 'top 3s linear';
-      cane.style.zIndex = '9999';
-      document.body.appendChild(cane);
-      setTimeout(() => cane.style.top = '100vh', 50);
-      setTimeout(() => cane.remove(), 3100);
-    }
-  }
-});
+    // 🎁 Flying Present (G)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'g') {
+        const gift = document.createElement('div');
+        gift.textContent = '🎁';
+        gift.style.position = 'fixed';
+        gift.style.left = '-100px';
+        gift.style.top = random(10, 80) + 'vh';
+        gift.style.fontSize = '60px';
+        gift.style.transition = 'left 3s linear';
+        gift.style.zIndex = '9999';
+        document.body.appendChild(gift);
+        setTimeout(() => gift.style.left = '110vw', 50);
+        setTimeout(() => gift.remove(), 3200);
+      }
+    });
 
-// 🦌 Reindeer Run (R)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 'r') {
-    const deer = document.createElement('div');
-    deer.textContent = '🦌';
-    deer.style.position = 'fixed';
-    deer.style.left = '-80px';
-    deer.style.bottom = '20px';
-    deer.style.fontSize = '70px';
-    deer.style.transition = 'left 3s linear';
-    deer.style.zIndex = '9999';
-    document.body.appendChild(deer);
-    setTimeout(() => deer.style.left = '110vw', 100);
-    setTimeout(() => deer.remove(), 3200);
-  }
-});
+    // 🧝 Elf Pop-In (E)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'e') {
+        const elf = document.createElement('div');
+        elf.textContent = '🧝‍♂️';
+        elf.style.position = 'fixed';
+        elf.style.left = '-80px';
+        elf.style.bottom = '30px';
+        elf.style.fontSize = '70px';
+        elf.style.transition = 'left 2s ease';
+        elf.style.zIndex = '9999';
+        document.body.appendChild(elf);
+        setTimeout(() => elf.style.left = '50px', 100);
+        setTimeout(() => elf.style.left = '-80px', 1800);
+        setTimeout(() => elf.remove(), 2500);
+      }
+    });
 
-// 🌲 Christmas Tree Grow (T)
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === 't') {
-    const tree = document.createElement('div');
-    tree.textContent = '🌲';
-    tree.style.position = 'fixed';
-    tree.style.top = '50%';
-    tree.style.left = '50%';
-    tree.style.transform = 'translate(-50%, -50%) scale(0)';
-    tree.style.transition = 'transform 2s ease';
-    tree.style.fontSize = '60px';
-    tree.style.zIndex = '9999';
-    document.body.appendChild(tree);
-    setTimeout(() => tree.style.transform = 'translate(-50%, -50%) scale(3)', 100);
-    setTimeout(() => tree.remove(), 2500);
-  }
-});
+    // ❄️ Snow Burst (N)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'n') {
+        for (let i = 0; i < 20; i++) {
+          const flake = document.createElement('div');
+          flake.textContent = '❄️';
+          flake.style.position = 'fixed';
+          flake.style.left = random(0, 100) + 'vw';
+          flake.style.top = random(0, 100) + 'vh';
+          flake.style.fontSize = random(10, 30) + 'px';
+          flake.style.opacity = 0.8;
+          flake.style.transition = 'transform 2s ease, opacity 2s ease';
+          flake.style.zIndex = '9999';
+          document.body.appendChild(flake);
+          setTimeout(() => {
+            flake.style.transform = 'translateY(100vh)';
+            flake.style.opacity = 0;
+          }, 100);
+          setTimeout(() => flake.remove(), 2100);
+        }
+      }
+    });
 
-// 🎁 Hidden Click Easter Eggs
-// Hidden snowflake
-const hiddenFlake = document.createElement('div');
-hiddenFlake.textContent = '❄️';
-hiddenFlake.style.position = 'fixed';
-hiddenFlake.style.right = '10px';
-hiddenFlake.style.bottom = '10px';
-hiddenFlake.style.opacity = '0.1';
-hiddenFlake.style.cursor = 'pointer';
-hiddenFlake.style.zIndex = '9999';
-hiddenFlake.onclick = () => alert('🎁 You found the secret snowflake!');
-document.body.appendChild(hiddenFlake);
-</script>
-<!-- 🎄 Hidden Easter Egg Hint -->
+    // 🎄 Secret Message (H)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'h') {
+        const msg = document.createElement('div');
+        msg.textContent = '🎄 Merry Christmas from Hudson! 🎄';
+        msg.style.position = 'fixed';
+        msg.style.top = '40%';
+        msg.style.left = '50%';
+        msg.style.transform = 'translate(-50%, -50%)';
+        msg.style.background = 'rgba(255,255,255,0.95)';
+        msg.style.padding = '20px 40px';
+        msg.style.borderRadius = '20px';
+        msg.style.fontSize = '1.5rem';
+        msg.style.fontWeight = 'bold';
+        msg.style.color = '#d32f2f';
+        msg.style.textShadow = '0 0 10px #fff';
+        msg.style.boxShadow = '0 0 20px rgba(0,0,0,0.2)';
+        msg.style.zIndex = '9999';
+        document.body.appendChild(msg);
+        setTimeout(() => msg.remove(), 3000);
+      }
+    });
 
-<div id="hidden-hint">❄️</div>
-<div id="hint-msg">🎅 Psst... Try pressing some keys for Christmas magic!</div>
+    // 💡 Christmas Lights Flash (L)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'l') {
+        const flash = document.createElement('div');
+        flash.style.position = 'fixed';
+        flash.style.top = '0';
+        flash.style.left = '0';
+        flash.style.width = '100vw';
+        flash.style.height = '100vh';
+        flash.style.zIndex = '9998';
+        document.body.appendChild(flash);
+        let flashes = 0;
+        const colors = ['red', 'green', 'gold', 'white'];
+        const interval = setInterval(() => {
+          flash.style.background = colors[Math.floor(Math.random() * colors.length)];
+          flash.style.opacity = 0.3;
+          setTimeout(() => flash.style.opacity = 0, 200);
+          flashes++;
+          if (flashes > 10) {
+            clearInterval(interval);
+            flash.remove();
+          }
+        }, 300);
+      }
+    });
 
-<style>
-  #hidden-hint {
-    position: fixed;
-    bottom: 8px;
-    right: 10px;
-    font-size:
+    // 🍭 Candy Cane Rain (C)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'c') {
+        for (let i = 0; i < 20; i++) {
+          const cane = document.createElement('div');
+          cane.textContent = '🍭';
+          cane.style.position = 'fixed';
+          cane.style.left = random(0, 100) + 'vw';
+          cane.style.top = '-50px';
+          cane.style.fontSize = random(20, 40) + 'px';
+          cane.style.transition = 'top 3s linear';
+          cane.style.zIndex = '9999';
+          document.body.appendChild(cane);
+          setTimeout(() => cane.style.top = '100vh', 50);
+          setTimeout(() => cane.remove(), 3100);
+        }
+      }
+    });
+
+    // 🦌 Reindeer Run (R)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'r') {
+        const deer = document.createElement('div');
+        deer.textContent = '🦌';
+        deer.style.position = 'fixed';
+        deer.style.left = '-80px';
+        deer.style.bottom = '20px';
+        deer.style.fontSize = '70px';
+        deer.style.transition = 'left 3s linear';
+        deer.style.zIndex = '9999';
+        document.body.appendChild(deer);
+        setTimeout(() => deer.style.left = '110vw', 100);
+        setTimeout(() => deer.remove(), 3200);
+      }
+    });
+
+    // 🌲 Christmas Tree Grow (T)
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 't') {
+        const tree = document.createElement('div');
+        tree.textContent = '🌲';
+        tree.style.position = 'fixed';
+        tree.style.top = '50%';
+        tree.style.left = '50%';
+        tree.style.transform = 'translate(-50%, -50%) scale(0)';
+        tree.style.transition = 'transform 2s ease';
+        tree.style.fontSize = '60px';
+        tree.style.zIndex = '9999';
+        document.body.appendChild(tree);
+        setTimeout(() => tree.style.transform = 'translate(-50%, -50%) scale(3)', 100);
+        setTimeout(() => tree.remove(), 2500);
+      }
+    });
+
+    // 🎁 Hidden Click Easter Eggs
+    // Hidden snowflake
+    const hiddenFlake = document.createElement('div');
+    hiddenFlake.textContent = '❄️';
+    hiddenFlake.style.position = 'fixed';
+    hiddenFlake.style.right = '10px';
+    hiddenFlake.style.bottom = '10px';
+    hiddenFlake.style.opacity = '0.1';
+    hiddenFlake.style.cursor = 'pointer';
+    hiddenFlake.style.zIndex = '9999';
+    hiddenFlake.onclick = () => alert('🎁 You found the secret snowflake!');
+    document.body.appendChild(hiddenFlake);
+  </script>
+
+  <!-- 🎄 Hidden Easter Egg Hint -->
+  <div id="hidden-hint">❄️</div>
+  <div id="hint-msg">🎅 Psst... Try pressing some keys for Christmas magic!</div>
 </body>
 </html>
+
