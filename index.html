@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Hudson's Christmas Art Gallery 🎅</title>
+  <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAmJD_Lw6N_X_xz1PTrWEuCUTXxyG5oUF2oWs2Iuuhe4QcbY1rsNt2UXM8coGklnqjSe9jxPd1ikcTB7I&components=hosted-buttons&enable-funding=venmo&currency=USD">
+</script>
   <meta name="description" content="Hudson's Christmas drawings & holiday art — browse the seasonal gallery!" />
   <style>
     :root{
@@ -306,21 +309,17 @@
         meta.appendChild(title);
         meta.appendChild(price);
 
-        // Fake buy button: shows a friendly alert (no email/payment)
-        const buy = document.createElement('a');
-        buy.className = 'fake-buy';
-        buy.href = '#';
-        buy.textContent = 'Buy Now (Coming Soon!)';
-        buy.style.marginTop = '8px';
-        buy.addEventListener('click',(ev)=>{
-          ev.preventDefault();
-          alert("Thanks for your interest! Buying isn't set up yet — come back soon!");
-        });
+
 
         card.appendChild(a);
         card.appendChild(hat);
         card.appendChild(meta);
-        card.appendChild(buy);
+        <div id="paypal-container-9NMTTU55F7W4E"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "9NMTTU55F7W4E",
+  }).render("#paypal-container-9NMTTU55F7W4E")
+</script>
         container.appendChild(card);
       });
     }
