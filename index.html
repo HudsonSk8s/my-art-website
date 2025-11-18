@@ -63,8 +63,6 @@
     .card img{width:100%;height:200px;object-fit:cover;border-radius:8px;display:block}
     .card .meta{margin-top:8px;display:flex;justify-content:space-between;align-items:center}
     .price{font-weight:700;color:var(--green)}
-    .fake-buy{background:var(--red);color:#fff;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block}
-    .fake-buy.ghost{background:transparent;color:var(--red);border:1px solid var(--red);font-weight:700}
 
     /* about & contact */
     .about{background:linear-gradient(90deg,#fff,#fff);border-radius:12px;padding:16px;border:1px solid var(--glass)}
@@ -117,32 +115,13 @@
   </style>
 </head>
 <body>
-  <!-- 🎅 Santa Hat Easter Egg -->
-  <script>
-    document.addEventListener('keydown', (e) => {
-      if (e.key.toLowerCase() === 's') { // press "S" for Santa
-        const hat = document.createElement('div');
-        hat.textContent = '🎅';
-        hat.style.position = 'fixed';
-        hat.style.bottom = '20px';
-        hat.style.right = '20px';
-        hat.style.fontSize = '80px';
-        hat.style.zIndex = '9999';
-        hat.style.transition = 'transform 1s ease';
-        document.body.appendChild(hat);
-        setTimeout(() => hat.style.transform = 'translateY(-100vh)'), 1000;
-        setTimeout(() => hat.remove(), 2000);
-      }
-    });
-  </script>
-
+  <!-- Decorations, lights, snow (unchanged) -->
   <div class="decor" aria-hidden="true">
     <div class="dec-emoji dec-1">🎅</div>
     <div class="dec-emoji dec-2">🧝‍♀️</div>
     <div class="dec-emoji dec-3">🎁</div>
     <div class="dec-emoji dec-4">❄️</div>
   </div>
-
   <div class="lights" aria-hidden="true">
     <div class="bulb b1">🔴</div>
     <div class="bulb b2">🟢</div>
@@ -154,9 +133,9 @@
     <div class="bulb b8">🟢</div>
     <div class="bulb b9">🟡</div>
   </div>
-
   <div class="snow" aria-hidden="true"></div>
 
+  <!-- Header -->
   <header class="site-header">
     <div class="header-inner container">
       <a class="logo" href="#">🎄 Hudson's Art</a>
@@ -172,6 +151,7 @@
     </div>
   </header>
 
+  <!-- Main -->
   <main>
     <section id="home" class="hero container" aria-labelledby="homeHeading">
       <div class="hero-left">
@@ -191,41 +171,33 @@
     <section id="gallery" class="container" aria-labelledby="galleryHeading">
       <h2 id="galleryHeading">My Art</h2>
       <p class="lead">Click any image to enlarge. Upload images to <code>assets/gallery/</code> (or add image URLs with the control below).</p>
-
       <div style="margin:12px 0;display:flex;gap:8px">
         <input id="add-gallery-url" placeholder="Add image URL to gallery" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--glass)" />
         <button id="add-gallery-btn" style="padding:9px 12px;border-radius:8px">Add</button>
         <button id="clear-gallery-btn" style="padding:9px 12px;border-radius:8px">Clear</button>
       </div>
-
       <div id="gallery-grid" class="grid" aria-live="polite"></div>
     </section>
 
-   <!-- About -->
-  <section id="about" class="container">
-    <h2>About</h2>
-
-    <!-- Profile photo (uses the image you uploaded to assets/gallery/IMG_6869.jpeg) -->
-    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-      <img src="assets/gallery/IMG_6869.jpeg"
-           alt="Photo of Hudson"
-           style="width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 8px 18px rgba(0,0,0,0.12);display:block;">
-      <div style="flex:1;min-width:200px;">
-        <p><strong>Hi! I’m Hudson.</strong> I’m a young artist who loves drawing and sharing my creations. My art is inspired by the holidays and imagination — I made the pieces on this site especially for Christmas. Thanks for stopping by!</p>
+    <!-- About & Contact (unchanged) -->
+    <section id="about" class="container">
+      <h2>About</h2>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <img src="assets/gallery/IMG_6869.jpeg"
+             alt="Photo of Hudson"
+             style="width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 8px 18px rgba(0,0,0,0.12);display:block;">
+        <div style="flex:1;min-width:200px;">
+          <p><strong>Hi! I’m Hudson.</strong> I’m a young artist who loves drawing and sharing my creations. My art is inspired by the holidays and imagination — I made the pieces on this site especially for Christmas. Thanks for stopping by!</p>
+        </div>
       </div>
-    </div>
-  </section>
-
-    <!-- Contact / fake shop note -->
+    </section>
     <section id="contact" class="container">
       <h2>Contact</h2>
-      <p>If you'd like to ask about a piece, use the "Buy" (coming soon) buttons in the gallery — they currently show a message because direct payments aren't set up yet. You can also send a message to the site owner via your email client when you click the fake buttons.</p>
+      <p>If you'd like to ask about a piece, click a PayPal "Buy Now" button — they'll take you to the payment page for each artwork.</p>
     </section>
   </main>
 
-  <!-- 🎁 Easter Egg Gift -->
-  <div id="gift-box" style="position:fixed;right:20px;bottom:80px;font-size:40px;cursor:pointer;z-index:100;">🎁</div>
-
+  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <small>© <span id="year"></span> Hudson's Art — Holiday Collection</small>
@@ -238,434 +210,83 @@
     <img id="lb-img" alt="Enlarged art">
   </div>
 
-  <!-- Jingle audio (optional: add assets/music/jingle.mp3 to enable) -->
+  <!-- Audio -->
   <audio id="jingle" loop>
     <source src="assets/music/jingle.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAmJD_Lw6N_X_xz1PTrWEuCUTXxyG5oUF2oWs2Iuuhe4QcbY1rsNt2UXM8coGklnqjSe9jxPd1ikcTB7I&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+
+  <!-- Main JS -->
   <script>
-    // CONFIG: default filenames to show (if you upload them into assets/gallery/)
-    const defaultGalleryFiles = [
-      'assets/gallery/art1.jpg',
-      'assets/gallery/art2.jpg'
-    ];
+    const defaultGalleryFiles = ['assets/gallery/art1.jpg','assets/gallery/art2.jpg'];
     const GALLERY_KEY = 'hudsons_gallery_urls_v1';
-
-    // helpers
-    const el = id => document.getElementById(id);
-    const yearSpan = el('year');
-    yearSpan.textContent = new Date().getFullYear();
-
-    // elements
+    const el = id=>document.getElementById(id);
+    const yearSpan = el('year'); yearSpan.textContent = new Date().getFullYear();
     const galleryGrid = el('gallery-grid');
     const addGalleryInput = el('add-gallery-url');
     const addGalleryBtn = el('add-gallery-btn');
     const clearGalleryBtn = el('clear-gallery-btn');
-    const lb = el('lightbox');
-    const lbImg = el('lb-img');
-    const lbClose = el('lb-close');
+    const lb = el('lightbox'); const lbImg = el('lb-img'); const lbClose = el('lb-close');
+    const audio = el('jingle'); const audioControl = el('audioControl'); const audioLabel = el('audioLabel');
 
-    // stored URLs helper
-    function getStored(key){ try{ return JSON.parse(localStorage.getItem(key) || '[]') }catch(e){ return [] } }
-    function setStored(key,arr){ localStorage.setItem(key, JSON.stringify(arr)) }
+    function getStored(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return[]}}
+    function setStored(k,a){localStorage.setItem(k,JSON.stringify(a))}
 
-    // render grid
+    function openLightbox(src){lbImg.src=src; lb.classList.add('show'); lb.setAttribute('aria-hidden','false')}
+    function closeLightbox(){lb.classList.remove('show'); lb.setAttribute('aria-hidden','true')}
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', e=>{if(e.target===lb) closeLightbox()});
+    document.addEventListener('keydown', e=>{if(e.key==='Escape') closeLightbox()});
+
     function renderGrid(container, srcArray){
-      container.innerHTML = '';
+      container.innerHTML='';
       srcArray.forEach((src,i)=>{
-        const card = document.createElement('div');
-        card.className = 'card';
-        const a = document.createElement('a');
-        a.href = '#';
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Artwork ${i+1}`;
-        img.loading = 'lazy';
+        const card=document.createElement('div'); card.className='card';
+        const a=document.createElement('a'); a.href='#';
+        const img=document.createElement('img'); img.src=src; img.alt=`Artwork ${i+1}`; img.loading='lazy';
         a.appendChild(img);
-        a.addEventListener('click', e=>{
-          e.preventDefault();
-          openLightbox(src);
-        });
-
-        // hat decoration
-        const hat = document.createElement('div');
-        hat.style.position='absolute';
-        hat.style.right='10px';
-        hat.style.top='10px';
-        hat.style.fontSize='20px';
-        hat.textContent='🎅';
-
-        const meta = document.createElement('div');
-        meta.className = 'meta';
-        const title = document.createElement('div');
-        title.textContent = `Artwork ${i+1}`;
-        title.style.fontSize='0.95rem';
-        title.style.color='var(--muted)';
-        const price = document.createElement('div');
-        price.innerHTML = `<span class="price">$2</span>`;
-        meta.appendChild(title);
-        meta.appendChild(price);
-
-        // Fake buy button: shows a friendly alert (no email/payment)
-        const buy = document.createElement('a');
-        buy.className = 'fake-buy';
-        buy.href = '#';
-        buy.textContent = 'Buy Now (Coming Soon!)';
-        buy.style.marginTop = '8px';
-        buy.addEventListener('click',(ev)=>{
-          ev.preventDefault();
-          alert("Thanks for your interest! Buying isn't set up yet — come back soon!");
-        });
-
-        card.appendChild(a);
-        card.appendChild(hat);
-        card.appendChild(meta);
-        card.appendChild(buy);
+        a.addEventListener('click', e=>{e.preventDefault(); openLightbox(src)});
+        const hat=document.createElement('div'); hat.style.position='absolute'; hat.style.right='10px';
+        hat.style.top='10px'; hat.style.fontSize='20px'; hat.textContent='🎅';
+        const meta=document.createElement('div'); meta.className='meta';
+        const title=document.createElement('div'); title.textContent=`Artwork ${i+1}`; title.style.fontSize='0.95rem'; title.style.color='var(--muted)';
+        const price=document.createElement('div'); price.innerHTML='<span class="price">$2</span>'; meta.appendChild(title); meta.appendChild(price);
+        const paypalDiv=document.createElement('div'); paypalDiv.id=`paypal-container-${i}`; paypalDiv.style.marginTop='8px';
+        card.appendChild(a); card.appendChild(hat); card.appendChild(meta); card.appendChild(paypalDiv);
         container.appendChild(card);
+        if(window.paypal){
+          paypal.HostedButtons({hostedButtonId:"WVHWYGUWMFMYN"}).render(`#paypal-container-${i}`);
+        }
       });
     }
 
-    function openLightbox(src){ lbImg.src = src; lb.classList.add('show'); lb.setAttribute('aria-hidden','false'); }
-    function closeLightbox(){ lb.classList.remove('show'); lb.setAttribute('aria-hidden','true'); }
-    lbClose.addEventListener('click', closeLightbox);
-    lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLightbox(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
-
-    // Build gallery from defaults + stored URL additions
     function buildGallery(){
-      const base = defaultGalleryFiles.slice();
-      const stored = getStored(GALLERY_KEY);
-      const all = base.concat(stored);
+      const base = defaultGalleryFiles.slice(); const stored=getStored(GALLERY_KEY); const all=base.concat(stored);
       renderGrid(galleryGrid, all);
-      // replace featured if first exists
-      const first = all[0] || '';
-      const feat = el('featured-art');
-      feat.innerHTML = '';
-      if(first){
-        const im = document.createElement('img');
-        im.src = first;
-        im.alt = 'Featured';
-        im.style.width='100%';
-        im.style.height='100%';
-        im.style.objectFit='cover';
-        im.style.borderRadius='10px';
-        feat.appendChild(im);
-      } else {
-        feat.textContent = 'Featured: Holiday sketch 🎁';
-      }
+      const first=all[0]||''; const feat=el('featured-art'); feat.innerHTML='';
+      if(first){ const im=document.createElement('img'); im.src=first; im.alt='Featured'; im.style.width='100%'; im.style.height='100%'; im.style.objectFit='cover'; im.style.borderRadius='12px'; feat.appendChild(im)}
     }
     buildGallery();
 
-    // add via URL controls
-    addGalleryBtn.addEventListener('click', ()=>{
-      const url = addGalleryInput.value.trim();
-      if(!url) return alert('Enter an image URL.');
-      const arr = getStored(GALLERY_KEY);
-      arr.unshift(url);
-      setStored(GALLERY_KEY, arr);
-      addGalleryInput.value = '';
-      buildGallery();
+    addGalleryBtn.addEventListener('click',()=>{
+      const val=addGalleryInput.value.trim(); if(!val) return;
+      const stored=getStored(GALLERY_KEY); stored.push(val); setStored(GALLERY_KEY,stored);
+      addGalleryInput.value=''; buildGallery();
     });
-    clearGalleryBtn.addEventListener('click', ()=>{
-      if(confirm('Clear added images?')){ localStorage.removeItem(GALLERY_KEY); buildGallery(); }
-    });
+    clearGalleryBtn.addEventListener('click',()=>{localStorage.removeItem(GALLERY_KEY); buildGallery()});
 
     // Audio control
-    const audio = el('jingle');
-    const audioControl = el('audioControl');
-    const audioLabel = el('audioLabel');
-    audioControl.addEventListener('click', ()=>{
-      if(!audio.src || audio.src.indexOf('jingle.mp3')===-1){
-        alert('No jingle file found. To enable sound, add assets/music/jingle.mp3 to your repo.');
-        return;
-      }
-      if(audio.paused){ audio.play(); audioControl.setAttribute('aria-pressed','true'); audioLabel.textContent='Pause jingle'; }
-      else { audio.pause(); audioControl.setAttribute('aria-pressed','false'); audioLabel.textContent='Play jingle'; }
+    audioControl.addEventListener('click',()=>{
+      if(audio.paused){audio.play(); audioControl.setAttribute('aria-pressed','true'); audioLabel.textContent='Pause jingle'}
+      else{audio.pause(); audioControl.setAttribute('aria-pressed','false'); audioLabel.textContent='Play jingle'}
     });
-    audio.addEventListener('ended', ()=>{ audioControl.setAttribute('aria-pressed','false'); audioLabel.textContent='Play jingle'; });
 
     // Snow generation
-    (function makeSnow(){
-      const snow = document.querySelector('.snow');
-      const count = 20;
-      for(let i=0;i<count;i++){
-        const s = document.createElement('i');
-        s.textContent = '❄️';
-        const left = Math.random()*100;
-        const delay = Math.random()*-20;
-        const dur = 8 + Math.random()*18;
-        s.style.left = left + 'vw';
-        s.style.animationDuration = dur + 's';
-        s.style.animationDelay = delay + 's';
-        s.style.opacity = (0.6 + Math.random()*0.4);
-        snow.appendChild(s);
-      }
-    })();
+    const snowEl=el('snow'); const snowCount=40;
+    for(let i=0;i<snowCount;i++){const s=document.createElement('i'); s.textContent='❄️'; s.style.left=`${Math.random()*100}%`; s.style.fontSize=`${10+Math.random()*12}px`; s.style.animationDuration=`${5+Math.random()*5}s`; snowEl.appendChild(s)}
 
-    // floating emojis animation
-    (function floatEmojis(){
-      const ups = document.querySelectorAll('.dec-emoji');
-      ups.forEach((d, i)=>{
-        d.animate([{transform:'translateY(0px)'},{transform:'translateY(-8px)'},{transform:'translateY(0px)'}],{duration:3000 + i*200,iterations:Infinity,delay:i*200});
-      });
-    })();
-
-    // Helpful note (console)
-    console.log("Hudson's Art site loaded. To show your own images upload them to assets/gallery/ on GitHub, or add image URLs using the gallery input.");
-
-    // 🎅 Secret Santa Mode + Gift Surprise Easter Eggs
-    let santaClicks = 0;
-    document.addEventListener('click', (e) => {
-      if (e.target.textContent === '🎅') {
-        santaClicks++;
-        if (santaClicks === 3) {
-          santaClicks = 0;
-          alert("🎅 Ho Ho Ho! You found Secret Santa Mode!");
-          // add extra snow!
-          for (let i = 0; i < 15; i++) {
-            const s = document.createElement('i');
-            s.textContent = '❄️';
-            const left = Math.random() * 100;
-            const dur = 8 + Math.random() * 18;
-            s.style.left = left + 'vw';
-            s.style.animationDuration = dur + 's';
-            s.style.opacity = 0.8;
-            document.querySelector('.snow').appendChild(s);
-          }
-        }
-      }
-    });
-
-    // 🎁 Gift box click = confetti and message
-    const giftBox = document.getElementById('gift-box');
-    giftBox.addEventListener('click', () => {
-      // confetti effect
-      for (let i = 0; i < 40; i++) {
-        const conf = document.createElement('div');
-        conf.textContent = ['🎉','🎄','✨','🎁'][Math.floor(Math.random()*4)];
-        conf.style.position = 'fixed';
-        conf.style.left = (Math.random()*100) + 'vw';
-        conf.style.top = '100vh';
-        conf.style.fontSize = '24px';
-        conf.style.animation = `rise${i} 2s ease-out forwards`;
-        document.body.appendChild(conf);
-
-        const style = document.createElement('style');
-        style.textContent = `
-          @keyframes rise${i} {
-            from { transform: translateY(0); opacity:1; }
-            to { transform: translateY(-110vh); opacity:0; }
-          }
-        `;
-        document.head.appendChild(style);
-
-        setTimeout(() => conf.remove(), 2000);
-      }
-
-      alert("🎁 Merry Christmas from Hudson’s Art! Thanks for finding the surprise!");
-    });
   </script>
-
-  <script>
-    // 🎅 HUDSON'S ULTIMATE CHRISTMAS EASTER EGGS 🎅
-
-    // Utility: random helper
-    function random(min, max) { return Math.random() * (max - min) + min; }
-
-    // 🎅 Santa Hat Float (S)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 's') {
-        const santa = document.createElement('div');
-        santa.textContent = '🎅';
-        santa.style.position = 'fixed';
-        santa.style.left = random(10, 90) + 'vw';
-        santa.style.bottom = '-80px';
-        santa.style.fontSize = '60px';
-        santa.style.transition = 'bottom 2s ease';
-        santa.style.zIndex = '9999';
-        document.body.appendChild(santa);
-        setTimeout(() => santa.style.bottom = '100vh', 100);
-        setTimeout(() => santa.remove(), 2100);
-      }
-    });
-
-    // 🎁 Flying Present (G)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 'g') {
-        const gift = document.createElement('div');
-        gift.textContent = '🎁';
-        gift.style.position = 'fixed';
-        gift.style.left = '-100px';
-        gift.style.top = random(10, 80) + 'vh';
-        gift.style.fontSize = '60px';
-        gift.style.transition = 'left 3s linear';
-        gift.style.zIndex = '9999';
-        document.body.appendChild(gift);
-        setTimeout(() => gift.style.left = '110vw', 50);
-        setTimeout(() => gift.remove(), 3200);
-      }
-    });
-
-    // 🧝 Elf Pop-In (E)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 'e') {
-        const elf = document.createElement('div');
-        elf.textContent = '🧝‍♂️';
-        elf.style.position = 'fixed';
-        elf.style.left = '-80px';
-        elf.style.bottom = '30px';
-        elf.style.fontSize = '70px';
-        elf.style.transition = 'left 2s ease';
-        elf.style.zIndex = '9999';
-        document.body.appendChild(elf);
-        setTimeout(() => elf.style.left = '50px', 100);
-        setTimeout(() => elf.style.left = '-80px', 1800);
-        setTimeout(() => elf.remove(), 2500);
-      }
-    });
-
-    // ❄️ Snow Burst (N)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 'n') {
-        for (let i = 0; i < 20; i++) {
-          const flake = document.createElement('div');
-          flake.textContent = '❄️';
-          flake.style.position = 'fixed';
-          flake.style.left = random(0, 100) + 'vw';
-          flake.style.top = random(0, 100) + 'vh';
-          flake.style.fontSize = random(10, 30) + 'px';
-          flake.style.opacity = 0.8;
-          flake.style.transition = 'transform 2s ease, opacity 2s ease';
-          flake.style.zIndex = '9999';
-          document.body.appendChild(flake);
-          setTimeout(() => {
-            flake.style.transform = 'translateY(100vh)';
-            flake.style.opacity = 0;
-          }, 100);
-          setTimeout(() => flake.remove(), 2100);
-        }
-      }
-    });
-
-    // 🎄 Secret Message (H)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 'h') {
-        const msg = document.createElement('div');
-        msg.textContent = '🎄 Merry Christmas from Hudson! 🎄';
-        msg.style.position = 'fixed';
-        msg.style.top = '40%';
-        msg.style.left = '50%';
-        msg.style.transform = 'translate(-50%, -50%)';
-        msg.style.background = 'rgba(255,255,255,0.95)';
-        msg.style.padding = '20px 40px';
-        msg.style.borderRadius = '20px';
-        msg.style.fontSize = '1.5rem';
-        msg.style.fontWeight = 'bold';
-        msg.style.color = '#d32f2f';
-        msg.style.textShadow = '0 0 10px #fff';
-        msg.style.boxShadow = '0 0 20px rgba(0,0,0,0.2)';
-        msg.style.zIndex = '9999';
-        document.body.appendChild(msg);
-        setTimeout(() => msg.remove(), 3000);
-      }
-    });
-
-    // 💡 Christmas Lights Flash (L)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 'l') {
-        const flash = document.createElement('div');
-        flash.style.position = 'fixed';
-        flash.style.top = '0';
-        flash.style.left = '0';
-        flash.style.width = '100vw';
-        flash.style.height = '100vh';
-        flash.style.zIndex = '9998';
-        document.body.appendChild(flash);
-        let flashes = 0;
-        const colors = ['red', 'green', 'gold', 'white'];
-        const interval = setInterval(() => {
-          flash.style.background = colors[Math.floor(Math.random() * colors.length)];
-          flash.style.opacity = 0.3;
-          setTimeout(() => flash.style.opacity = 0, 200);
-          flashes++;
-          if (flashes > 10) {
-            clearInterval(interval);
-            flash.remove();
-          }
-        }, 300);
-      }
-    });
-
-    // 🍭 Candy Cane Rain (C)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 'c') {
-        for (let i = 0; i < 20; i++) {
-          const cane = document.createElement('div');
-          cane.textContent = '🍭';
-          cane.style.position = 'fixed';
-          cane.style.left = random(0, 100) + 'vw';
-          cane.style.top = '-50px';
-          cane.style.fontSize = random(20, 40) + 'px';
-          cane.style.transition = 'top 3s linear';
-          cane.style.zIndex = '9999';
-          document.body.appendChild(cane);
-          setTimeout(() => cane.style.top = '100vh', 50);
-          setTimeout(() => cane.remove(), 3100);
-        }
-      }
-    });
-
-    // 🦌 Reindeer Run (R)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 'r') {
-        const deer = document.createElement('div');
-        deer.textContent = '🦌';
-        deer.style.position = 'fixed';
-        deer.style.left = '-80px';
-        deer.style.bottom = '20px';
-        deer.style.fontSize = '70px';
-        deer.style.transition = 'left 3s linear';
-        deer.style.zIndex = '9999';
-        document.body.appendChild(deer);
-        setTimeout(() => deer.style.left = '110vw', 100);
-        setTimeout(() => deer.remove(), 3200);
-      }
-    });
-
-    // 🌲 Christmas Tree Grow (T)
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 't') {
-        const tree = document.createElement('div');
-        tree.textContent = '🌲';
-        tree.style.position = 'fixed';
-        tree.style.top = '50%';
-        tree.style.left = '50%';
-        tree.style.transform = 'translate(-50%, -50%) scale(0)';
-        tree.style.transition = 'transform 2s ease';
-        tree.style.fontSize = '60px';
-        tree.style.zIndex = '9999';
-        document.body.appendChild(tree);
-        setTimeout(() => tree.style.transform = 'translate(-50%, -50%) scale(3)', 100);
-        setTimeout(() => tree.remove(), 2500);
-      }
-    });
-
-    // 🎁 Hidden Click Easter Eggs
-    // Hidden snowflake
-    const hiddenFlake = document.createElement('div');
-    hiddenFlake.textContent = '❄️';
-    hiddenFlake.style.position = 'fixed';
-    hiddenFlake.style.right = '10px';
-    hiddenFlake.style.bottom = '10px';
-    hiddenFlake.style.opacity = '0.1';
-    hiddenFlake.style.cursor = 'pointer';
-    hiddenFlake.style.zIndex = '9999';
-    hiddenFlake.onclick = () => alert('🎁 You found the secret snowflake!');
-    document.body.appendChild(hiddenFlake);
-  </script>
-
-  <!-- 🎄 Hidden Easter Egg Hint -->
-  <div id="hidden-hint">❄️</div>
-  <div id="hint-msg">🎅 Psst... Try pressing some keys for Christmas magic!</div>
 </body>
 </html>
