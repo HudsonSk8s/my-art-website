@@ -108,8 +108,6 @@ footer.site-footer{padding:18px 20px;border-top:1px solid var(--glass);text-alig
 </style>
 </head>
 <body>
-
-<!-- Decorations, lights, snow -->
 <div class="decor" aria-hidden="true">
   <div class="dec-emoji dec-1">🎅</div>
   <div class="dec-emoji dec-2">🧝‍♀️</div>
@@ -129,93 +127,91 @@ footer.site-footer{padding:18px 20px;border-top:1px solid var(--glass);text-alig
 </div>
 <div class="snow" aria-hidden="true"></div>
 
-<!-- Header -->
 <header class="site-header">
-  <div class="header-inner container">
-    <a class="logo" href="#">🎄 Hudson's Art</a>
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#gallery">My Art</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div style="display:flex;gap:8px;align-items:center">
-      <div id="audioControl" class="audio-toggle" role="button" aria-pressed="false" title="Play / pause jingle">🔔 <span id="audioLabel">Play jingle</span></div>
-    </div>
+<div class="header-inner container">
+  <a class="logo" href="#">🎄 Hudson's Art</a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#gallery">My Art</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div style="display:flex;gap:8px;align-items:center">
+    <div id="audioControl" class="audio-toggle" role="button" aria-pressed="false" title="Play / pause jingle">🔔 <span id="audioLabel">Play jingle</span></div>
   </div>
+</div>
 </header>
 
-<!-- Main -->
 <main>
-  <section id="home" class="hero container" aria-labelledby="homeHeading">
-    <div class="hero-left">
-      <h1 id="homeHeading">Hudson's Christmas Art Gallery 🎅</h1>
-      <p class="lead">Welcome to my holiday art shop! Browse my drawings below — new holiday pieces added regularly.</p>
-      <div style="margin-top:14px">
-        <a href="#gallery" class="fake-buy" style="background:var(--green)">Browse gallery</a>
-        <a href="#shop" class="fake-buy ghost" style="margin-left:8px">Shop (coming soon)</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="banner" id="featured-art">Featured: Holiday sketch 🎁</div>
-    </div>
-  </section>
+<section id="home" class="hero container" aria-labelledby="homeHeading">
+<div class="hero-left">
+  <h1 id="homeHeading">Hudson's Christmas Art Gallery 🎅</h1>
+  <p class="lead">Welcome to my holiday art shop! Browse my drawings below — new holiday pieces added regularly.</p>
+  <div style="margin-top:14px">
+    <a href="#gallery" class="fake-buy" style="background:var(--green)">Browse gallery</a>
+    <a href="#shop" class="fake-buy ghost" style="margin-left:8px">Shop (coming soon)</a>
+  </div>
+</div>
+<div class="hero-right">
+  <div class="banner" id="featured-art">Featured: Holiday sketch 🎁</div>
+</div>
+</section>
 
-  <section id="gallery" class="container" aria-labelledby="galleryHeading">
-    <h2 id="galleryHeading">My Art</h2>
-    <p class="lead">Click any image to enlarge. Upload images to <code>assets/gallery/</code> (or add image URLs with the control below).</p>
-    <div style="margin:12px 0;display:flex;gap:8px">
-      <input id="add-gallery-url" placeholder="Add image URL to gallery" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--glass)" />
-      <button id="add-gallery-btn" style="padding:9px 12px;border-radius:8px">Add</button>
-      <button id="clear-gallery-btn" style="padding:9px 12px;border-radius:8px">Clear</button>
-    </div>
-    <div id="gallery-grid" class="grid" aria-live="polite"></div>
-  </section>
+<section id="gallery" class="container" aria-labelledby="galleryHeading">
+<h2 id="galleryHeading">My Art</h2>
+<p class="lead">Click any image to enlarge. Upload images to <code>assets/gallery/</code> (or add image URLs with the control below).</p>
+<div style="margin:12px 0;display:flex;gap:8px">
+<input id="add-gallery-url" placeholder="Add image URL to gallery" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--glass)" />
+<button id="add-gallery-btn" style="padding:9px 12px;border-radius:8px">Add</button>
+<button id="clear-gallery-btn" style="padding:9px 12px;border-radius:8px">Clear</button>
+</div>
+<div id="gallery-grid" class="grid" aria-live="polite"></div>
+</section>
 
-  <section id="about" class="container">
-    <h2>About</h2>
-    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-      <img src="assets/gallery/IMG_6869.jpeg" alt="Photo of Hudson" style="width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 8px 18px rgba(0,0,0,0.12);display:block;">
-      <div style="flex:1;min-width:200px;">
-        <p><strong>Hi! I’m Hudson.</strong> I’m a young artist who loves drawing and sharing my creations. My art is inspired by the holidays and imagination — I made the pieces on this site especially for Christmas. Thanks for stopping by!</p>
-      </div>
-    </div>
-  </section>
+<section id="about" class="container">
+<h2>About</h2>
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+<img src="assets/gallery/IMG_6869.jpeg" alt="Photo of Hudson" style="width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 8px 18px rgba(0,0,0,0.12);display:block;">
+<div style="flex:1;min-width:200px;">
+<p><strong>Hi! I’m Hudson.</strong> I’m a young artist who loves drawing and sharing my creations. My art is inspired by the holidays and imagination — I made the pieces on this site especially for Christmas. Thanks for stopping by!</p>
+</div>
+</div>
+</section>
 
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <p>If you'd like to ask about a piece, click a PayPal "Buy Now" button — they'll take you to the payment page for each artwork.</p>
-  </section>
+<section id="contact" class="container">
+<h2>Contact</h2>
+<p>If you'd like to ask about a piece, click a PayPal "Buy Now" button — they'll take you to the payment page for each artwork.</p>
+</section>
 </main>
 
-<!-- Footer -->
 <footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <small>© <span id="year"></span> Hudson's Art — Holiday Collection</small>
-  </div>
+<div class="container">
+<small>© <span id="year"></span> Hudson's Art — Holiday Collection</small>
+</div>
 </footer>
 
-<!-- Lightbox -->
 <div id="lightbox" class="lightbox" aria-hidden="true">
-  <button id="lb-close" class="lb-close" aria-label="Close">×</button>
-  <img id="lb-img" alt="Enlarged art">
+<button id="lb-close" class="lb-close" aria-label="Close">×</button>
+<img id="lb-img" alt="Enlarged art">
 </div>
 
-<!-- Audio -->
 <audio id="jingle" loop>
-  <source src="assets/music/jingle.mp3" type="audio/mpeg">
+<source src="assets/music/jingle.mp3" type="audio/mpeg">
 </audio>
 
-<!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=BAAmJD_Lw6N_X_xz1PTrWEuCUTXxyG5oUF2oWs2Iuuhe4QcbY1rsNt2UXM8coGklnqjSe9jxPd1ikcTB7I&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
 
-<!-- Main JS -->
 <script>
-const defaultGalleryFiles = ['assets/gallery/Koala with Santa hat_1.jpeg','assets/gallery/art1.jpg','assets/gallery/art2.jpg'];
+const defaultGalleryFiles = [
+  'assets/gallery/Koala with Santa hat_1.jpeg',
+  'assets/gallery/Christmas Harry Potter_1.jpeg',
+  'assets/gallery/The grinch_1.jpeg',
+  'assets/gallery/art1.jpg',
+  'assets/gallery/art2.jpg'
+];
 const GALLERY_KEY = 'hudsons_gallery_urls_v1';
-const el = id => document.getElementById(id);
+const el = id=>document.getElementById(id);
 el('year').textContent = new Date().getFullYear();
-
 const galleryGrid = el('gallery-grid');
 const addGalleryInput = el('add-gallery-url');
 const addGalleryBtn = el('add-gallery-btn');
@@ -230,15 +226,8 @@ const audioLabel = el('audioLabel');
 function getStored(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return[]}}
 function setStored(k,a){localStorage.setItem(k,JSON.stringify(a))}
 
-function openLightbox(src){
-  lbImg.src=src;
-  lb.classList.add('show');
-  lb.setAttribute('aria-hidden','false');
-}
-function closeLightbox(){
-  lb.classList.remove('show');
-  lb.setAttribute('aria-hidden','true');
-}
+function openLightbox(src){lbImg.src=src; lb.classList.add('show'); lb.setAttribute('aria-hidden','false')}
+function closeLightbox(){lb.classList.remove('show'); lb.setAttribute('aria-hidden','true')}
 lbClose.addEventListener('click', closeLightbox);
 lb.addEventListener('click', e=>{if(e.target===lb) closeLightbox()});
 document.addEventListener('keydown', e=>{if(e.key==='Escape') closeLightbox()});
@@ -256,7 +245,7 @@ function renderGrid(container, srcArray){
     img.loading='lazy';
     a.appendChild(img);
     a.addEventListener('click', e=>{e.preventDefault(); openLightbox(src)});
-    
+
     const hat=document.createElement('div');
     hat.style.position='absolute';
     hat.style.right='10px';
@@ -323,20 +312,11 @@ addGalleryBtn.addEventListener('click',()=>{
 });
 clearGalleryBtn.addEventListener('click',()=>{
   localStorage.removeItem(GALLERY_KEY);
-  buildGallery();
+  buildGallery()
 });
-
-// Audio control
 audioControl.addEventListener('click',()=>{
-  if(audio.paused){
-    audio.play();
-    audioControl.setAttribute('aria-pressed','true');
-    audioLabel.textContent='Pause jingle';
-  } else{
-    audio.pause();
-    audioControl.setAttribute('aria-pressed','false');
-    audioLabel.textContent='Play jingle';
-  }
+  if(audio.paused){audio.play(); audioControl.setAttribute('aria-pressed','true'); audioLabel.textContent='Pause jingle'}
+  else{audio.pause(); audioControl.setAttribute('aria-pressed','false'); audioLabel.textContent='Play jingle'}
 });
 
 // Snow generation
@@ -348,7 +328,7 @@ for(let i=0;i<snowCount;i++){
   s.style.left=`${Math.random()*100}%`;
   s.style.fontSize=`${10+Math.random()*12}px`;
   s.style.animationDuration=`${5+Math.random()*5}s`;
-  snowEl.appendChild(s);
+  snowEl.appendChild(s)
 }
 </script>
 </body>
