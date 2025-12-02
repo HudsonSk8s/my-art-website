@@ -31,7 +31,6 @@ body{
   padding-bottom:60px;
 }
 .container{max-width:var(--max-width);margin:0 auto;padding:20px}
-/* header */
 header.site-header{
   position:sticky;
   top:0;
@@ -45,14 +44,12 @@ header.site-header{
 nav.nav{display:flex;gap:12px;align-items:center}
 nav.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
 nav.nav a:hover{background:rgba(0,0,0,0.03);color:var(--text)}
-/* hero */
 .hero{display:flex;gap:20px;align-items:center;padding:28px;border-radius:14px;margin-top:14px;background: radial-gradient(circle at 10% 10%, rgba(255,245,240,0.6), transparent 8%), linear-gradient(180deg, rgba(255,255,255,0.6), transparent 10%);}
 .hero-left{flex:1}
 .hero h1{margin:0;font-size:2rem}
 .lead{color:var(--muted);margin-top:8px}
 .hero-right{width:320px}
 .banner{width:100%;border-radius:12px;height:220px;object-fit:cover;background:#ffecec;display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:var(--muted);box-shadow:0 10px 30px rgba(0,0,0,0.06)}
-/* layout sections */
 section{padding:20px 0}
 h2{margin:0 0 8px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--gap)}
@@ -60,17 +57,14 @@ h2{margin:0 0 8px 0}
 .card img{width:100%;height:200px;object-fit:cover;border-radius:8px;display:block}
 .card .meta{margin-top:8px;display:flex;justify-content:space-between;align-items:center}
 .price{font-weight:700;color:var(--green)}
-/* about & contact */
 .about{background:linear-gradient(90deg,#fff,#fff);border-radius:12px;padding:16px;border:1px solid var(--glass)}
 footer.site-footer{padding:18px 20px;border-top:1px solid var(--glass);text-align:center;color:var(--muted);position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.95));}
-/* decorations */
 .decor { position:fixed;inset:0;pointer-events:none;z-index:10; background-image: radial-gradient(circle at 10% 10%, rgba(255,240,240,0.6), transparent 4%), radial-gradient(circle at 90% 30%, rgba(230,255,240,0.6), transparent 4%); }
 .dec-emoji{position:fixed;font-size:28px;opacity:0.95}
 .dec-1{left:6%;top:6%}
 .dec-2{left:86%;top:8%}
 .dec-3{left:10%;bottom:10%}
 .dec-4{right:6%;bottom:8%}
-/* lights */
 .lights{position:fixed;left:0;right:0;top:0;height:60px;pointer-events:none;z-index:9}
 .lights .bulb{position:absolute;top:18px;font-size:18px;transform:translateX(-50%);opacity:0.95;filter:drop-shadow(0 2px 2px rgba(0,0,0,0.15));}
 .lights .b1{left:8%}
@@ -84,27 +78,20 @@ footer.site-footer{padding:18px 20px;border-top:1px solid var(--glass);text-alig
 .lights .b9{left:88%}
 .lights .bulb{animation:blink 2s infinite}
 @keyframes blink { 0%{opacity:1}50%{opacity:0.25}100%{opacity:1} }
-/* snow */
 .snow {pointer-events:none;position:fixed;inset:0;z-index:8}
 .snow i{position:absolute;top:-10%;font-size:14px;color:#fff;opacity:0.95;animation:fall linear infinite}
 @keyframes fall { to { transform: translateY(120vh) rotate(200deg); } }
-/* lightbox */
 .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:30px;background:rgba(0,0,0,0.6);z-index:999}
 .lightbox.show{display:flex}
 .lb-close{position:absolute;right:22px;top:18px;font-size:36px;background:transparent;border:none;color:#fff;cursor:pointer}
 .lightbox img{max-width:86vw;max-height:80vh;border-radius:10px}
-/* audio control */
 .audio-toggle{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--glass);padding:6px 10px;border-radius:10px;background:rgba(255,255,255,0.9);cursor:pointer}
-/* responsive */
 @media (max-width:880px){
   .hero{flex-direction:column;padding:16px}
   .hero-right{width:100%}
   .card img{height:140px}
   .logo{font-size:1.05rem}
 }
-/* small hint styles at bottom-right */
-#hidden-hint { position: fixed; bottom: 8px; right: 10px; font-size:20px; opacity:0.9; z-index:9999; }
-#hint-msg { position: fixed; bottom: 40px; right: 10px; background: rgba(255,255,255,0.95); padding:8px 12px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.12); font-weight:700; color:var(--red); display:none; z-index:9999; }
 </style>
 </head>
 <body>
@@ -143,28 +130,18 @@ footer.site-footer{padding:18px 20px;border-top:1px solid var(--glass);text-alig
 </header>
 
 <main>
-<section id="home" class="hero container" aria-labelledby="homeHeading">
+<section id="home" class="hero container">
 <div class="hero-left">
-  <h1 id="homeHeading">Hudson's Christmas Art Gallery 🎅</h1>
+  <h1>Hudson's Christmas Art Gallery 🎅</h1>
   <p class="lead">Welcome to my holiday art shop! Browse my drawings below — new holiday pieces added regularly.</p>
-  <div style="margin-top:14px">
-    <a href="#gallery" class="fake-buy" style="background:var(--green)">Browse gallery</a>
-    <a href="#shop" class="fake-buy ghost" style="margin-left:8px">Shop (coming soon)</a>
-  </div>
 </div>
 <div class="hero-right">
   <div class="banner" id="featured-art">Featured: Holiday sketch 🎁</div>
 </div>
 </section>
 
-<section id="gallery" class="container" aria-labelledby="galleryHeading">
-<h2 id="galleryHeading">My Art</h2>
-<p class="lead">Click any image to enlarge. Upload images to <code>assets/gallery/</code> (or add image URLs with the control below).</p>
-<div style="margin:12px 0;display:flex;gap:8px">
-<input id="add-gallery-url" placeholder="Add image URL to gallery" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--glass)" />
-<button id="add-gallery-btn" style="padding:9px 12px;border-radius:8px">Add</button>
-<button id="clear-gallery-btn" style="padding:9px 12px;border-radius:8px">Clear</button>
-</div>
+<section id="gallery" class="container">
+<h2>My Art</h2>
 <div id="gallery-grid" class="grid" aria-live="polite"></div>
 </section>
 
@@ -180,18 +157,18 @@ footer.site-footer{padding:18px 20px;border-top:1px solid var(--glass);text-alig
 
 <section id="contact" class="container">
 <h2>Contact</h2>
-<p>If you'd like to ask about a piece, click a PayPal "Buy Now" button — they'll take you to the payment page for each artwork.</p>
+<p>If you'd like to ask about a piece, click a PayPal "Buy Now" button — they'll open in a new tab, then you can download your artwork using the link below each button.</p>
 </section>
 </main>
 
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer">
 <div class="container">
 <small>© <span id="year"></span> Hudson's Art — Holiday Collection</small>
 </div>
 </footer>
 
 <div id="lightbox" class="lightbox" aria-hidden="true">
-<button id="lb-close" class="lb-close" aria-label="Close">×</button>
+<button id="lb-close" class="lb-close">×</button>
 <img id="lb-img" alt="Enlarged art">
 </div>
 
@@ -199,30 +176,40 @@ footer.site-footer{padding:18px 20px;border-top:1px solid var(--glass);text-alig
 <source src="assets/music/jingle.mp3" type="audio/mpeg">
 </audio>
 
-<script src="https://www.paypal.com/sdk/js?client-id=BAAmJD_Lw6N_X_xz1PTrWEuCUTXxyG5oUF2oWs2Iuuhe4QcbY1rsNt2UXM8coGklnqjSe9jxPd1ikcTB7I&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
-
 <script>
 const defaultGalleryFiles = [
-  'assets/gallery/Koala with Santa hat_1.jpeg',
-  'assets/gallery/Christmas Harry Potter_1.jpeg',
-  'assets/gallery/The grinch_1.jpeg',
+  {
+    src: 'assets/gallery/Koala with Santa hat_1.jpeg',
+    title: 'Christmas Koala',
+    price: 2,
+    download: 'downloads/Koala_with_Santa_hat.pdf',
+    paypalButtonId: 'JH6L5PRHF7V4G'
+  },
+  {
+    src: 'assets/gallery/Christmas Harry Potter_1.jpeg',
+    title: 'Christmas Harry Potter',
+    price: 2,
+    download: 'downloads/Christmas_Harry_Potter.pdf',
+    paypalButtonId: 'Q3VXS3ZXW9772'
+  },
+  {
+    src: 'assets/gallery/The grinch_1.jpeg',
+    title: 'The Grinch',
+    price: 2,
+    download: 'downloads/The_Grinch.pdf',
+    paypalButtonId: 'Q5FPPXAWNSWR8'
+  },
 ];
-const GALLERY_KEY = 'hudsons_gallery_urls_v1';
-const el = id=>document.getElementById(id);
-el('year').textContent = new Date().getFullYear();
-const galleryGrid = el('gallery-grid');
-const addGalleryInput = el('add-gallery-url');
-const addGalleryBtn = el('add-gallery-btn');
-const clearGalleryBtn = el('clear-gallery-btn');
-const lb = el('lightbox');
-const lbImg = el('lb-img');
-const lbClose = el('lb-close');
-const audio = el('jingle');
-const audioControl = el('audioControl');
-const audioLabel = el('audioLabel');
 
-function getStored(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return[]}}
-function setStored(k,a){localStorage.setItem(k,JSON.stringify(a))}
+const galleryGrid = document.getElementById('gallery-grid');
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const lbClose = document.getElementById('lb-close');
+const audio = document.getElementById('jingle');
+const audioControl = document.getElementById('audioControl');
+const audioLabel = document.getElementById('audioLabel');
+
+document.getElementById('year').textContent = new Date().getFullYear();
 
 function openLightbox(src){lbImg.src=src; lb.classList.add('show'); lb.setAttribute('aria-hidden','false')}
 function closeLightbox(){lb.classList.remove('show'); lb.setAttribute('aria-hidden','true')}
@@ -230,130 +217,59 @@ lbClose.addEventListener('click', closeLightbox);
 lb.addEventListener('click', e=>{if(e.target===lb) closeLightbox()});
 document.addEventListener('keydown', e=>{if(e.key==='Escape') closeLightbox()});
 
-function renderGrid(container, srcArray){
-  container.innerHTML='';
-  srcArray.forEach((src,i)=>{
-    const card=document.createElement('div');
-    card.className='card';
-    const a=document.createElement('a');
-    a.href='#';
-    const img=document.createElement('img');
-    img.src=src;
-    img.alt=`Artwork ${i+1}`;
-    img.loading='lazy';
-    a.appendChild(img);
-    a.addEventListener('click', e=>{e.preventDefault(); openLightbox(src)});
+function renderGrid(container, artworks){
+  container.innerHTML = '';
+  artworks.forEach((art,i)=>{
+    const card = document.createElement('div');
+    card.className = 'card';
 
-    const hat=document.createElement('div');
-    hat.style.position='absolute';
-    hat.style.right='10px';
-    hat.style.top='10px';
-    hat.style.fontSize='20px';
-    hat.textContent='🎅';
+    const img = document.createElement('img');
+    img.src = art.src;
+    img.alt = art.title;
+    img.loading = 'lazy';
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => openLightbox(art.src));
 
-    const meta=document.createElement('div');
-    meta.className='meta';
-    const title=document.createElement('div');
-    title.textContent=`Artwork ${i+1}`;
-    title.style.fontSize='0.95rem';
-    title.style.color='var(--muted)';
-    const price=document.createElement('div');
-    price.innerHTML='<span class="price">$5</span>';
-    meta.appendChild(title);
-    meta.appendChild(price);
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    meta.innerHTML = `<div style="color:var(--muted);font-size:0.95rem">${art.title}</div>
+                      <div class="price">$${art.price}</div>`;
 
-    const paypalDiv=document.createElement('div');
-    paypalDiv.id=`paypal-container-${i}`;
-    paypalDiv.style.marginTop='8px';
+    const paypalDiv = document.createElement('div');
+    paypalDiv.style.marginTop = '8px';
+    paypalDiv.innerHTML = `
+      <form action="https://www.paypal.com/ncp/payment/${art.paypalButtonId}" method="post" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+        <input type="submit" value="Buy Now" style="padding:8px 16px;border:none;border-radius:6px;background:#FFD140;font-weight:bold;cursor:pointer;">
+      </form>
+      <a href="${art.download}" target="_blank" style="margin-top:6px;display:inline-block;color:var(--green);font-weight:bold;text-decoration:none;">Download after payment</a>
+    `;
 
-    card.appendChild(a);
-    card.appendChild(hat);
+    card.appendChild(img);
     card.appendChild(meta);
     card.appendChild(paypalDiv);
     container.appendChild(card);
-
-    // PayPal buttons logic (case-insensitive)
-    if(src.toLowerCase().includes('koala')){
-      paypalDiv.innerHTML = `<div>
-        <style>.pp-JH6L5PRHF7V4G{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-        <form action="https://www.paypal.com/ncp/payment/JH6L5PRHF7V4G" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-          <input class="pp-JH6L5PRHF7V4G" type="submit" value="Buy Now" />
-          <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
-          <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-        </form>
-      </div>`;
-    } else if(src.toLowerCase().includes('harry potter')){
-      paypalDiv.innerHTML = `<div>
-        <style>.pp-Q3VXS3ZXW9772{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-        <form action="https://www.paypal.com/ncp/payment/Q3VXS3ZXW9772" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-          <input class="pp-Q3VXS3ZXW9772" type="submit" value="Buy Now" />
-          <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
-          <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-        </form>
-      </div>`;
-    } else if(src.toLowerCase().includes('grinch')){
-      paypalDiv.innerHTML = `<div>
-        <style>.pp-Q5FPPXAWNSWR8{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-        <form action="https://www.paypal.com/ncp/payment/Q5FPPXAWNSWR8" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-          <input class="pp-Q5FPPXAWNSWR8" type="submit" value="Buy Now" />
-          <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
-          <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-        </form>
-      </div>`;
-    }
   });
 }
 
-function buildGallery(){
-  const base = defaultGalleryFiles.slice();
-  const stored=getStored(GALLERY_KEY);
-  const all=base.concat(stored);
-  renderGrid(galleryGrid, all);
-  const first=all[0]||'';
-  const feat=el('featured-art');
-  feat.innerHTML='';
-  if(first){
-    const im=document.createElement('img');
-    im.src=first;
-    im.alt='Featured';
-    im.style.width='100%';
-    im.style.height='100%';
-    im.style.objectFit='cover';
-    im.style.borderRadius='12px';
-    feat.appendChild(im);
-  }
-}
-buildGallery();
+renderGrid(galleryGrid, defaultGalleryFiles);
 
-addGalleryBtn.addEventListener('click',()=>{
-  const val=addGalleryInput.value.trim();
-  if(!val) return;
-  const stored=getStored(GALLERY_KEY);
-  stored.push(val);
-  setStored(GALLERY_KEY,stored);
-  addGalleryInput.value='';
-  buildGallery();
-});
-clearGalleryBtn.addEventListener('click',()=>{
-  localStorage.removeItem(GALLERY_KEY);
-  buildGallery()
-});
 audioControl.addEventListener('click',()=>{
   if(audio.paused){audio.play(); audioControl.setAttribute('aria-pressed','true'); audioLabel.textContent='Pause jingle'}
   else{audio.pause(); audioControl.setAttribute('aria-pressed','false'); audioLabel.textContent='Play jingle'}
 });
 
 // Snow generation
-const snowEl=el('snow');
-const snowCount=40;
+const snowEl = document.querySelector('.snow');
+const snowCount = 40;
 for(let i=0;i<snowCount;i++){
-  const s=document.createElement('i');
-  s.textContent='❄️';
-  s.style.left=`${Math.random()*100}%`;
-  s.style.fontSize=`${10+Math.random()*12}px`;
-  s.style.animationDuration=`${5+Math.random()*5}s`;
+  const s = document.createElement('i');
+  s.textContent = '❄️';
+  s.style.left = `${Math.random()*100}%`;
+  s.style.fontSize = `${10+Math.random()*12}px`;
+  s.style.animationDuration = `${5+Math.random()*5}s`;
   snowEl.appendChild(s)
 }
 </script>
 </body>
 </html>
+
