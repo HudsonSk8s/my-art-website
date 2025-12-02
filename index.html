@@ -199,8 +199,6 @@ footer.site-footer{padding:18px 20px;border-top:1px solid var(--glass);text-alig
 <source src="assets/music/jingle.mp3" type="audio/mpeg">
 </audio>
 
-<script src="https://www.paypal.com/sdk/js?client-id=BAAmJD_Lw6N_X_xz1PTrWEuCUTXxyG5oUF2oWs2Iuuhe4QcbY1rsNt2UXM8coGklnqjSe9jxPd1ikcTB7I&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
-
 <script>
 const defaultGalleryFiles = [
   'assets/gallery/Koala with Santa hat_1.jpeg',
@@ -263,18 +261,45 @@ function renderGrid(container, srcArray){
     meta.appendChild(price);
 
     const paypalDiv=document.createElement('div');
-    paypalDiv.id=`paypal-container-${i}`;
     paypalDiv.style.marginTop='8px';
+
+    if(src.includes('Koala')) {
+      paypalDiv.innerHTML=`
+<div>
+  <style>.pp-JH6L5PRHF7V4G{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/JH6L5PRHF7V4G" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-JH6L5PRHF7V4G" type="submit" value="Buy Now" />
+    <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+    <section style="font-size: 0.75rem;">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" style="height:0.875rem;"/></section>
+  </form>
+</div>`;
+    } else if(src.includes('Harry Potter')) {
+      paypalDiv.innerHTML=`
+<div>
+  <style>.pp-Q3VXS3ZXW9772{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/Q3VXS3ZXW9772" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-Q3VXS3ZXW9772" type="submit" value="Buy Now" />
+    <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+    <section style="font-size: 0.75rem;">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" style="height:0.875rem;"/></section>
+  </form>
+</div>`;
+    } else if(src.includes('Grinch')) {
+      paypalDiv.innerHTML=`
+<div>
+  <style>.pp-Q5FPPXAWNSWR8{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/Q5FPPXAWNSWR8" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-Q5FPPXAWNSWR8" type="submit" value="Buy Now" />
+    <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+    <section style="font-size: 0.75rem;">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" style="height:0.875rem;"/></section>
+  </form>
+</div>`;
+    }
 
     card.appendChild(a);
     card.appendChild(hat);
     card.appendChild(meta);
     card.appendChild(paypalDiv);
     container.appendChild(card);
-
-    if(window.paypal){
-      paypal.HostedButtons({hostedButtonId:"WVHWYGUWMFMYN"}).render(`#paypal-container-${i}`);
-    }
   });
 }
 
