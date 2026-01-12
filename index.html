@@ -171,18 +171,22 @@ footer.site-footer{
   position:fixed;
   inset:0;
   display:none;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   background:rgba(0,0,0,0.65);
   z-index:999;
+  color:#fff;
+  text-align:center;
 }
 
 .lightbox.show{display:flex}
 
 .lightbox img{
   max-width:86vw;
-  max-height:80vh;
+  max-height:70vh;
   border-radius:12px;
+  margin-bottom:12px;
 }
 
 .lb-close{
@@ -261,6 +265,7 @@ footer.site-footer{
 <div id="lightbox" class="lightbox">
   <button class="lb-close" id="lb-close">×</button>
   <img id="lb-img" alt="Artwork preview">
+  <div id="lb-title"></div>
 </div>
 
 <script>
@@ -281,14 +286,14 @@ const artworks = [
   },
   {
     src: 'assets/gallery/CamScanner 10-20-25 14.38_2.jpeg',
-    title: 'CamScanner Sketch 1',
+    title: 'Koala',
     price: 2,
     download: 'downloads/CamScanner_10-20-25_14.38_2.pdf',
     paypalButtonId: 'PAYPAL_ID_3'
   },
   {
     src: 'assets/gallery/CamScanner 1-12-26 13.02_1.jpeg',
-    title: 'CamScanner Sketch 2',
+    title: 'Harry Potter',
     price: 2,
     download: 'downloads/CamScanner_1-12-26_13.02_1.pdf',
     paypalButtonId: 'PAYPAL_ID_4'
@@ -298,6 +303,7 @@ const artworks = [
 const grid = document.getElementById('gallery-grid');
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lb-img');
+const lbTitle = document.getElementById('lb-title');
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -308,7 +314,11 @@ artworks.forEach(art=>{
   const img=document.createElement('img');
   img.src=art.src;
   img.alt=art.title;
-  img.onclick=()=>{lbImg.src=art.src;lb.classList.add('show')};
+  img.onclick=()=>{
+    lbImg.src=art.src;
+    lbTitle.textContent=art.title; // display title in lightbox
+    lb.classList.add('show');
+  };
 
   card.innerHTML=`
     <div class="meta">
@@ -339,5 +349,6 @@ lb.onclick=e=>{if(e.target===lb)lb.classList.remove('show')};
 
 </body>
 </html>
+
 
 
